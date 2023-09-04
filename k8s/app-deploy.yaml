@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: login-app-deploy
+  labels:
+    name: login-app-deploy
+    app: prac-node-login
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: login-app-pod
+      app: prac-node-login
+  template:
+    metadata:
+      name: login-app-pod
+      labels:
+        name: login-app-pod
+        app: prac-node-login
+    spec:
+      containers:
+        - name: login-app
+          image: chihhuiw/node-simple-login:1.0.4
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - secretRef:
+                name: env-secrets
+      nodeSelector:
+        role: "agent"

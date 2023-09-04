@@ -1,0 +1,15 @@
+**/.git
+**/node_modules
+
+Dockerfile*
+docker-compose*
+.dockerignore
+
+.env
+.env.template
+
+.gitignore
+.vscode
+
+createdb.sql
+README.md

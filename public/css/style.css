@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+}
+
+body {
+  font-family: Georgia, sans-serif;
+  margin: auto;
+  width: 50%;
+  height: 100%;   
+  display:flex;
+  flex-direction:column;
+}
+
+/*--- first section---*/
+#h1title {
+  text-align: center;
+  background-color: #231145;
+  color: #ffffff;
+  padding: 40px;
+}
+
+/* member page */
+#membertitle {
+  text-align: left;
+  padding: 40px;
+}
+#link {
+  font-family: Georgia;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 45px;
+}
+#link:link, #link:visited {
+  text-decoration: none;
+}
+#link:hover, #link:focus {
+  text-decoration: underline;
+  color: #993300;
+}
+
+/*--- second section---*/
+#buttonplace {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background-color: #aeb7b3;
+  padding: 20px 50px;
+}
+
+/*========
+  buttons
+==========*/
+.show-signin, .show-signup, .oldsubmit, .newsubmit {
+  font-family: Georgia;
+  font-weight: bold;
+  color: #323436;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  padding: 10px 20px;
+}
+
+.oldsubmit, .newsubmit {
+  margin: 10px;
+}
+
+/*--- third section ---*/
+#instruction {
+  text-align: center;
+  background-color: #dbdbdb;
+  padding: 10px;
+}
+
+#reminder {
+  text-align: center;
+  background-color: #dbdbdb;
+  color: #6e2b9f;
+  font-weight: bold;
+  padding: 5px 0 5px 0;
+}
+
+/*========
+  div
+==========*/
+#sign-in, #sign-up {
+  background-color: #dbdbdb;
+  padding: 10px;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+/*========
+  form
+==========*/
+.form-signin, .form-signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  width: 60%;
+}
+
+label {
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+  margin: 8px 0;
+}
+
+input[type=text], input[type=email], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  /*margin: 8px 0 0 0;*/
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+#pwdhint {
+  font-size: 12px;
+  font-family:'Segoe UI', Tahoma, Geneva, sans-serif;
+  color: #323436;
+  text-align: left;
+  width: 90%;
+}
+
+/* #mailformat, #pwdformat {
+  font-size: 12px;
+  font-family:'Segoe UI', Tahoma, Geneva, sans-serif;
+  color: red;
+  text-align: left;
+  width: 90%;
+} */
+
+
+.newemail:invalid, .oldemail:invalid {
+  color: darkred;
+}
+
+/************ */
+@media all and (max-width: 700px) {
+  body {
+    width: 100%;
+  }
+}

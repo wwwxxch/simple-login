@@ -1,0 +1,15 @@
+# service
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-service
+  labels:
+    name: db-service
+    app: prac-node-login
+spec:
+  selector:
+    name: db-pod # map the pod label
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306

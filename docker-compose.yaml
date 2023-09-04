@@ -1,0 +1,27 @@
+version: "3.1"
+
+services:
+  db:
+    image: mysql:8.1
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "3306:3306"
+    networks:
+      - mynetwork
+    volumes:
+      - /var/lib/mysql:/var/lib/mysql
+  app:
+    image: chihhuiw/node-simple-login:1.0.3
+    depends_on:
+      - db
+    ports:
+      - "8080:8000"
+    networks:
+      - mynetwork
+    env_file:
+      - .env
+networks:
+  mynetwork:

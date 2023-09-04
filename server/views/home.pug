@@ -1,0 +1,45 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Home
+  link(rel='stylesheet' href='/css/style.css')
+main
+  h1#h1title Home
+  #buttonplace
+    button.show-signin(type='button') SignIn
+    button.show-signup(type='button') SignUp
+  div
+    h3#instruction(style='display: none')
+  div
+    p#reminder(style='display: none')
+  // SignIn (OLD) form
+  #sign-in(style='display:none')
+    form.form-signin(action='/signin' method='post')
+      label(for='oldemail') E-mail: 
+      input.oldemail(type='email' name='oldemail' pattern='^[\\-\\w\\.]+@([\\-\\w]+\\.)+[\\-\\w]{2,4}$')
+      p
+      label(for='oldpwd') Password: 
+      input.oldpwd(type='password' name='oldpwd')
+      p
+      button.oldsubmit(type='submit') Submit
+  // SignUp (NEW) form
+  #sign-up(style='display:none')
+    form.form-signup(action='/signup' method='post')
+      label(for='newname') Name: 
+      input.newname(type='text' name='newname')
+      p
+      label(for='newemail') E-mail: 
+      input.newemail(type='email' name='newemail' pattern='^[\\-\\w\\.]+@([\\-\\w]+\\.)+[\\-\\w]{2,4}$')
+      p#mailformat
+      label(for='newpwd') Password: 
+      input.newpwd(type='password' name='newpwd')
+      p#pwdhint
+        | Use 8 to 16 characters with a mix of numbers, lowercase letters, uppercase letters
+      p#pwdformat
+      label(for='pwdconf') Password Confirmation: 
+      input.pwdconf(type='password' name='pwdconf')
+      p#pwdconfchk
+      button.newsubmit(type='submit') Submit
+script(src='https://code.jquery.com/jquery-3.6.3.min.js' integrity='sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=' crossorigin='anonymous')
+script(src='/js/dom-jq.js')

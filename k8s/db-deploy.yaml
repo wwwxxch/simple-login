@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-deploy
+  labels:
+    name: db-deploy
+    app: prac-node-login
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: db-pod
+      app: prac-node-login
+  template:
+    metadata:
+      name: db-pod
+      labels:
+        name: db-pod
+        app: prac-node-login
+    spec:
+      containers:
+        - name: db
+          image: mysql:8.1
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: env-secrets
+                  key: MYSQL_ROOT_PASSWORD
+      nodeSelector:
+        role: "agent"
